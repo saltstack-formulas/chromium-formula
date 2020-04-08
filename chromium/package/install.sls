@@ -20,11 +20,4 @@ chromium-package-install-pkg-installed:
     - name: {{ chromium.pkg.name }}
     - reload_modules: true
 
-chromium-package-install-cmd-run-snap:
-  cmd.run:
-    - name: snap install {{ chromium.pkg.name }}
-    - onlyif: test -x /usr/bin/snap || test -x /usr/local/bin/snap
-    - onfail:
-       - pkg: chromium-package-install-pkg-installed
-
     {%- endif %}

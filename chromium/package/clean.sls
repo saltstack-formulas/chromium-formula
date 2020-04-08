@@ -20,11 +20,4 @@ chromium-package-remove-pkg-removed:
     - name: {{ chromium.pkg.name }}
     - reload_modules: true
 
-chromium-package-remove-cmd-run-snap:
-  cmd.run:
-    - name: snap remove {{ chromium.pkg.name }}
-    - onlyif: test -x /usr/bin/snap || test -x /usr/local/bin/snap
-    - onfail:
-      - pkg: chromium-package-remove-pkg-removed
-
     {%- endif %}
