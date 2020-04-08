@@ -15,6 +15,10 @@
     {%- set macos_rootgroup = salt['cmd.run']("stat -f '%Sg' /dev/console") %}
 {%- endif %}
 
+Debian:
+  pkg:
+    name: chromium-browser
+
 MacOS:
   rootuser: {{ macos_rootuser | d('') }}
   rootgroup: {{ macos_rootgroup | d('') }}
