@@ -58,11 +58,6 @@ This installs Chromium Browser and related configuration.
 
 This state will install Chromium package on GNU/Linux (native or snap) and MacOS (homebrew).
 
-``chromium.macapp``
-^^^^^^^^^^^^^^^^^^
-
-This state will install Chromium macpackage on MacOS.
-
 ``chromium.clean``
 ^^^^^^^^^^^^^^^^^
 
@@ -74,11 +69,6 @@ this state will undo everything performed in the ``chromium`` meta-state in reve
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This state will remove Chromium package on GNU/Linux (native or snap) and MacOS (homebrew).
-
-``chromium.macapp.clean``
-^^^^^^^^^^^^^^^^^^^^^^^^
-
-This state will remove Chromium macpackage on MacOS.
 
 
 Testing

@@ -6,11 +6,4 @@
 {%- set p = chromium.pkg %}
 
 include:
-             {%- if grains.os_family in ('MacOS',) %}
-  -{{ ' .macapp' if p.use_upstream_macapp else ' .package' }}
-
-             {%- else %}
   - .package
-
-             {%- endif %}
-
