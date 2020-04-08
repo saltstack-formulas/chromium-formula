@@ -56,7 +56,7 @@ This installs Chromium Browser and related configuration.
 ``chromium.package``
 ^^^^^^^^^^^^^^^^^^^
 
-This state will install Chromium package on GNU/Linux and MacOS (homebrew).
+This state will install Chromium package on GNU/Linux and MacOS (homebrew). See https://chromium.googlesource.com/chromium/src/+/refs/heads/master/docs/linux/chromium_packages.md
 
 ``chromium.clean``
 ^^^^^^^^^^^^^^^^^
