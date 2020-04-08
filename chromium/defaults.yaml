@@ -7,7 +7,6 @@ chromium:
   rootgroup: root
   dir:
     tmp: /tmp/chromium
-    archive: /usr/local
   config: {}
   environ:
     - dummy=dummy

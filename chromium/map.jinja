@@ -17,14 +17,7 @@
 %}
 {%- set chromium = salt['grains.filter_by']( {'defaults': defaults}, default='defaults', merge=_config) %}
 
-{%- if chromium.pkg.use_upstream_macapp %}
-    {%- set dir = '%s-%s-%s'|format(chromium.pkg.name, chromium.version, chromium.pkg.archive.tag) %}
-    {%- do chromium.pkg.macapp.update({'source': chromium.pkg.macapp.uri }) %}
-{%- endif %}
-
-{%- if chromium['pkg']['use_upstream_archive'] %}
-    {%- set dir = '%s-%s-%s'|format(chromium.pkg.name, chromium.version, chromium.pkg.archive.tag) %}
-    {%- do chromium.config.update({'path': chromium.dir.archive + '/' + dir }) %},
-    {%- do chromium.pkg.archive.update({'name': chromium.dir.archive + '/' + dir,
-           'source': '%s/%s/%s.%s.%s'|format(chromium.pkg.macapp.uri, chromium.version, dir,  grains.osarch, chromium.pkg.suffix)}) %}
+{%- if charles.pkg.use_upstream_macapp %}
+       {%- set url = charles.pkg.macapp.uri %}
+       {%- do charles.pkg.archive.update({ 'name': '/Applications', 'source': url }) %}
 {%- endif %}

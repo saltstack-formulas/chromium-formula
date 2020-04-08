@@ -171,19 +171,3 @@ suites:
     verifier:
       inspec_tests:
         - path: test/integration/default
-  - name: archive
-    provisioner:
-      state_top:
-        base:
-          '*':
-            - chromium
-      pillars:
-        top.sls:
-          base:
-            '*':
-              - chromium
-      pillars_from_files:
-        chromium.sls: test/salt/archive/pillar.sls
-    verifier:
-      inspec_tests:
-        - path: test/integration/archive
