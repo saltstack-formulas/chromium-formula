@@ -12,7 +12,7 @@ ignore: |
   node_modules/
   test/**/states/**/*.sls
   .kitchen/
-  chromium/osfamilymap.yaml
+  chromium/osmap.yaml
   pillar.example
 
 yaml-files:

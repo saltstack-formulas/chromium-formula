@@ -8,14 +8,14 @@
 #
 # If you do not need to provide defaults via the `os_family` grain,
 # you will need to provide at least an empty dict in this file, e.g.
-# osfamilymap: {}
+# osmap: {}
 ---
 {%- if grains.os == 'MacOS' %}
     {%- set macos_rootuser = salt['cmd.run']("stat -f '%Su' /dev/console") %}
     {%- set macos_rootgroup = salt['cmd.run']("stat -f '%Sg' /dev/console") %}
 {%- endif %}
 
-Debian:
+Ubuntu:
   pkg:
     name: chromium-browser
 
