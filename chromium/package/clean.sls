@@ -7,17 +7,22 @@
 
     {%- if grains.os_family == 'MacOS' %}
 
-chromium-package-remove-cmd-run-cask:
+chromium-package-clean-cmd-run-cask:
   cmd.run:
-    - name: brew cask remove {{ chromium.pkg.name }}
+    - name: brew cask clean {{ chromium.pkg.name }}
     - runas: {{ chromium.rootuser }}
     - onlyif: test -x /usr/local/bin/brew
 
     {%- elif grains.kernel|lower == 'linux' %}
 
-chromium-package-remove-pkg-removed:
-  pkg.removed:
+chromium-package-clean-pkg-cleaned:
+  pkg.cleand:
     - name: {{ chromium.pkg.name }}
     - reload_modules: true
+  cmd.run:
+    - name: snap remove {{ chrome.pkg.name }}
+    - onlyif: test -x /usr/bin/snap || test -x /usr/local/bin/snap
+    - onfail:
+       - pkg: chrome-package-clean-pkg-cleaned
 
     {%- endif %}
