@@ -1,0 +1,25 @@
+# -*- coding: utf-8 -*-
+# vim: ft=yaml
+---
+chromium:
+  version: latest
+  rootuser: root
+  rootgroup: root
+  dir:
+    tmp: /tmp/chromium
+    archive: /usr/local
+  config: {}
+  environ:
+    - dummy=dummy
+  environ_file: /etc/default/chromium.sh
+  pkg:
+    name: chromium
+    use_upstream_package: true
+    use_upstream_macapp: false
+    macapp: {}
+  retry_option:
+    # https://docs.saltstack.com/en/latest/ref/states/requisites.html#retrying-states
+    attempts: 3
+    until: true
+    interval: 10
+    splay: 10
